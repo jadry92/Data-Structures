@@ -1,0 +1,14 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Data Structures",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ./"
+  },
+  "author": "Johan Suarez Largo",
+  "license": "MIT",
+  "dependencies": {
+    "jest": "^28.1.1"
+  }
+}

@@ -14,7 +14,7 @@ class MyArray {
     return this.pointer[index]
   }
 
-  getStr = () => {
+  getPointer = () => {
     return this.pointer
   }
 
@@ -60,24 +60,4 @@ class MyArray {
 
 }
 
-
-const anArray = new MyArray()
-anArray.push(0)
-anArray.push(1)
-anArray.push(4)
-anArray.push(3)
-anArray.push(-100)
-anArray.push(100)
-
-console.log(anArray.getStr())
-anArray.slice(5)
-console.log(anArray.getStr())
-anArray.slice(0)
-console.log(anArray.getStr())
-anArray.shift(213)
-console.log(anArray.getStr())
-anArray.shift(23)
-console.log(anArray.getStr())
-anArray.shift(13)
-console.log(anArray.getStr())
-console.log(anArray.get(0))
+module.exports = { MyArray }
