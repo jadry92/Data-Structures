@@ -70,8 +70,7 @@ def test_print_link_list():
     link_list.append(1)
     link_list.append(2)
     link_list.append(3)
-    link_list.print_link_list()
-    assert "1 -> 2 -> 3 -> " == link_list.str_values 
+    assert "1 -> 2 -> 3 -> " == str(link_list)
 
 def test_get_index():
     link_list = LinkList()
