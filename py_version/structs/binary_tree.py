@@ -21,6 +21,39 @@ class Node:
                 self.left.add_node(node)
 
 
+class QueueNode:
+    def __init__(self, node: Node) -> None:
+        self.node = node
+        self.next: QueueNode | None = None
+
+
+class Queue:
+    """Queue implementation"""
+
+    def __init__(self) -> None:
+        self.head = None
+        self.tail = None
+
+    def add(self, bt_node: Node) -> None:
+        if self.head == None and self.tail == None:
+            self.head = QueueNode(bt_node)
+            self.tail = self.head
+        else:
+            if self.tail != None:
+                node = QueueNode(bt_node)
+                self.tail.next = node
+                self.tail = node
+
+    def pop(self) -> Node | None:
+        if self.head is None and self.tail is None:
+            return None
+        else:
+            if self.head != None:
+                node = self.head.node
+                self.head = self.head.next
+                return node
+
+
 class BinaryTree:
     def __init__(self) -> None:
         self.head = None
@@ -52,8 +85,17 @@ class BinaryTree:
     def bfs(self) -> str:
         """Breadth-first search"""
         values = []
+        queue = Queue()
         if self.head is None:
             return ""
         else:
-            self._walk_bsf(self.head, values)
+            current = self.head
+            while current:
+                values.append(current.value)
+                if current.left:
+                    queue.add(current.left)
+                if current.right:
+                    queue.add(current.right)
+                current = queue.pop()
+
             return " ".join([str(v) for v in values])

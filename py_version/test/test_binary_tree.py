@@ -32,3 +32,8 @@ def test_add(tree):
 def test_dfs(tree):
     """Test the dfs method"""
     assert tree.dfs() == "5 3 2 4 7 6 8"
+
+
+def test_bfs(tree):
+    """Test the bfs method"""
+    assert tree.bfs() == "5 3 7 2 4 6 8"
