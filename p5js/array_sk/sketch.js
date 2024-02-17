@@ -21,7 +21,6 @@ const sketch = (p) => {
     p.background(200);
     if (action_drawing === 'none'){
       if (actions_queue.length > 0) {
-        console.log(actions_queue);
         const action = actions_queue.shift();
         action.operation(array);
         action_drawing = action.name;
@@ -73,15 +72,17 @@ const sketch = (p) => {
   }
 
   const action_set = () => {
-    const value = parseInt(get_value_input('set-id'));
-    if (value === '') {
+    let value = get_value_input('set-id')
+    if (!isNumeric(value)) {
       return;
     }
+    value = parseInt(value);
 
-    const index = parseInt(get_value_input('set-value'));
-    if (index === '') {
+    let index = get_value_input('set-value')
+    if (!isNumeric(index)) {
       return;
     }
+    index = parseInt(index);
 
     if (index < 0 || index >= array.array.length) {
       return;
